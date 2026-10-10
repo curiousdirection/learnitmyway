@@ -8,7 +8,7 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     {{ hugo.Generator }}
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
     {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#004ba0">
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#9fd8f0">
 
     {{ with .OutputFormats.Get "rss" }}
       <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
@@ -58,9 +58,10 @@
   </head>
 
   <body class="body-wrapper">
+    <a class="skip-link" href="#main">Skip to content</a>
 
     {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
-    <main>
+    <main id="main">
       {{ block "main" . }}{{ end }}
     </main>
     <footer>
