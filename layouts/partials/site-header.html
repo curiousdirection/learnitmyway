@@ -1,5 +1,9 @@
 <header class="site-header">
+  <div class="site-header__bar">
+    {{ partial "theme-toggle.html" . }}
+  </div>
   <div class="site-header__text">
+    {{ partial "svg/cap.svg" (dict "size" "88" "class" "site-header__cap") }}
     <h1 class="site-header__header-text">
       {{ .Title | default .Site.Title }}
     </h1>

@@ -37,6 +37,19 @@
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fffaf0">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1915">
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme === 'light' || theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+              meta.setAttribute('content', theme === 'dark' ? '#1b1915' : '#fffaf0');
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     {{ with .OutputFormats.Get "rss" }}
       <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
@@ -69,12 +82,10 @@
     </main>
     <footer>
       {{ block "footer" . }}
-        {{ partial "link-to-repo" .}}
-        {{ partial "site-license.html" .}}
-        {{ partial "privacy-policy.html" .}}
-        {{ block "footer-nav" . }}{{ partial "site-navigation.html" .}}{{ end }}
+        {{ partial "site-footer.html" . }}
       {{ end }}
     </footer>
+    {{ partial "theme-toggle-script.html" . }}
     {{ block "scripts" . }}{{ end }}
   </body>
 </html>

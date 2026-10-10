@@ -1,8 +1,10 @@
 <nav class="nav">
   <a href="{{ .Site.BaseURL }}" class="nav__title">
+    {{ partial "svg/cap.svg" (dict "size" "36" "class" "nav__cap") }}
     {{ .Site.Title }}
   </a>
-  <div>
+  <div class="nav__actions">
+    {{ partial "theme-toggle.html" . }}
     {{ partial "social-follow.html" . }}
   </div>
 </nav>
