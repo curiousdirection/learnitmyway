@@ -18,6 +18,8 @@ pygmentsUseClasses = true
   author = "David"
   about = "Thanks for visiting Learn it my way! I created this website so I could share my learning experiences as a self-taught software developer."
   github = "https://github.com/learnitmyway"
+  repo = "https://github.com/curiousdirection/learnitmyway" # source repo; used for source, edit and privacy policy links
+  repoBranch = "main"
 
 [markup]
   [markup.goldmark]
