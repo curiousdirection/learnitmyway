@@ -16,7 +16,6 @@ Have a look at [How I release updates to my personal website](https://www.learni
 - `npm install -g netlify-cli`
 - `netlify login`
 - `netlify link`
-- `npm install`
 - `make dev`
 
 ## Useful commands

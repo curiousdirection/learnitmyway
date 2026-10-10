@@ -1,10 +1,3 @@
-@import 'normalize.css/normalize.css';
-@import 'syntax.css';
-
-@custom-media --small screen and (min-width: 576px);
-@custom-media --medium screen and (min-width: 768px);
-@custom-media --large screen and (min-width: 992px);
-
 :root {
   --black-8: rgba(0, 0, 0, 0.8);
   --black-6: rgba(0, 0, 0, 0.6);
@@ -25,10 +18,10 @@
   --large: 992px;
 
   font-size: 18px;
-  @media (--medium) {
+  @media screen and (min-width: 768px) {
     font-size: 20px;
   }
-  @media (--large) {
+  @media screen and (min-width: 992px) {
     font-size: 21px;
   }
 }
@@ -94,7 +87,7 @@ html {
   padding: 4rem 1.5rem;
   margin: 0 auto;
   max-width: var(--small);
-  @media (--large) {
+  @media screen and (min-width: 992px) {
     max-width: var(--medium);
   }
 }
@@ -156,7 +149,7 @@ html {
   margin: 0 auto;
   padding: 0 0.75rem;
   max-width: var(--small);
-  @media (--large) {
+  @media screen and (min-width: 992px) {
     max-width: var(--medium);
   }
 }
@@ -192,7 +185,7 @@ html {
 .article__publisher-info {
   padding-top: 0.75rem;
   font-size: 0.75rem;
-  color: color(var(--primary) alpha(-30%));
+  color: color-mix(in srgb, var(--primary) 70%, transparent);
 }
 
 .article {
@@ -256,14 +249,14 @@ article img {
 }
 
 .bio--small {
-  @media (--small) {
+  @media screen and (min-width: 576px) {
     display: none;
   }
 }
 
 .bio--large {
   display: none;
-  @media (--small) {
+  @media screen and (min-width: 576px) {
     display: flex;
   }
 }
