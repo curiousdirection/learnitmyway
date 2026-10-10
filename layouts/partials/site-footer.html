@@ -1,0 +1,14 @@
+<div class="site-footer">
+  <a href="{{ .Site.BaseURL }}" class="site-footer__title">
+    {{ partial "svg/cap.svg" (dict "size" "30" "class" "site-footer__cap") }}
+    {{ .Site.Title }}
+  </a>
+  <ul class="site-footer__links nested-links">
+    <li><a rel="noopener" target="_blank" href="{{ .Site.Params.github }}/{{ .Site.Params.repoName }}">Source code</a></li>
+    <li><a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA license</a></li>
+    <li><a rel="noopener" target="_blank" href="{{ .Site.Params.github }}/{{ .Site.Params.repoName }}/blob/{{ .Site.Params.repoBranch }}/privacy-policy.md">Privacy policy</a></li>
+  </ul>
+  <div class="site-footer__social">
+    {{ partial "social-follow.html" . }}
+  </div>
+</div>

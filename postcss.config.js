@@ -4,7 +4,11 @@ module.exports = ctx => {
     plugins: {
       "postcss-import": { path: ["assets/css"] },
       "postcss-preset-env": {
-        stage: 0
+        stage: 0,
+        features: {
+          "focus-visible-pseudo-class": false,
+          "prefers-color-scheme-query": false
+        }
       },
     }
   }
