@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Learn it my way",
+    "short_name": "Learn it my way",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#fffaf0",
+    "background_color": "#fffaf0",
     "display": "standalone"
 }

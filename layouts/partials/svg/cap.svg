@@ -1,0 +1,8 @@
+<svg class="cap {{ .class }}" viewBox="0 0 384 384" width="{{ .size }}" height="{{ .size }}" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <g class="cap__ink" fill="none" stroke-width="24" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M40 104 L186 53 Q192 51 198 53 L344 104 Q353 110 344 116 L198 167 Q192 169 186 167 L40 116 Q31 110 40 104 Z"/>
+    <path d="M84 140 V228 Q84 266 192 266 Q300 266 300 228 V140"/>
+  </g>
+  <line class="cap__tassel" x1="338" y1="158" x2="338" y2="258" stroke-width="20" stroke-linecap="round"/>
+  <path class="cap__drop" d="M338 270 C327 289 318 300 318 311 a20 20 0 0 0 40 0 C358 300 349 289 338 270Z"/>
+</svg>
