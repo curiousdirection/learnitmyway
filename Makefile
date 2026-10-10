@@ -6,4 +6,4 @@ build:
 	hugo --minify
 
 dev:
-	npx netlify dev
+	hugo server -w

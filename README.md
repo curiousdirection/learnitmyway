@@ -10,12 +10,7 @@ Have a look at [How I release updates to my personal website](https://www.learni
 
 ## Local development
 
-### set up netlify
-
-- `mise install` (installs Node and Hugo; keep the Hugo version in sync with `netlify.toml`)
-- `npm install -g netlify-cli`
-- `netlify login`
-- `netlify link`
+- `mise install` (installs Hugo; keep the version in sync with `netlify.toml`)
 - `make dev`
 
 ## Useful commands
