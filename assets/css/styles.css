@@ -24,12 +24,12 @@
   --medium: 768px;
   --large: 992px;
 
+  --font-serif: charter, 'bitstream charter', 'sitka text', cambria, georgia, serif;
+  --font-sans: system-ui, -apple-system, 'segoe ui', roboto, 'helvetica neue', arial, sans-serif;
+
   font-size: 18px;
   @media (--medium) {
-    font-size: 20px;
-  }
-  @media (--large) {
-    font-size: 21px;
+    font-size: 19px;
   }
 }
 
@@ -43,12 +43,21 @@ html {
   box-sizing: inherit;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav a:focus-visible {
+  outline-color: white;
+}
+
 .nested-links a {
   color: var(--primary);
-  &:hover,
-  &:focus {
-    opacity: 0.5;
-    transition: all 0.15s ease-in;
+  text-underline-offset: 0.15em;
+  &:hover {
+    text-decoration-thickness: 2px;
   }
 }
 
@@ -71,8 +80,8 @@ html {
 .body-wrapper {
   background-color: var(--light-grey);
   color: var(--black-8);
-  line-height: 1.5;
-  font-family: georgia, times, serif;
+  line-height: 1.6;
+  font-family: var(--font-serif);
   font-size: 1rem;
 }
 
@@ -89,9 +98,9 @@ html {
   padding: 1rem;
 }
 .site-header__text {
-  font-family: 'avenir next', avenir, sans-serif;
+  font-family: var(--font-sans);
   text-align: center;
-  padding: 4rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   margin: 0 auto;
   max-width: var(--small);
   @media (--large) {
@@ -103,11 +112,15 @@ html {
   color: white;
   font-weight: 500;
   line-height: 1.25;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  @media (--medium) {
+    font-size: 3rem;
+  }
 }
 .site-header__subheader-text {
   margin: 0.75rem auto 0;
   padding: 1rem;
+  font-size: 1.17rem;
   font-weight: 300;
   color: white;
 }
@@ -127,7 +140,7 @@ html {
 .nav__title {
   font-size: 1.5rem;
   font-weight: 300;
-  font-family: 'avenir next', avenir, sans-serif;
+  font-family: var(--font-sans);
   text-decoration: none;
   color: white;
   display: inline-block;
@@ -166,10 +179,14 @@ html {
   margin: 0.75rem auto;
   box-shadow: var(--card-shadow-4);
   text-decoration: none;
+  transition: box-shadow 0.2s;
   &:hover,
-  &:focus {
-    transition: all 0.2s;
-    background-color: var(--primary-light);
+  &:focus-visible {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.25);
+  }
+  &:hover .summary__title,
+  &:focus-visible .summary__title {
+    text-decoration: underline;
   }
 }
 
@@ -180,7 +197,7 @@ html {
 }
 .summary__title {
   font-size: 1.2rem;
-  font-family: athelas, georgia, serif;
+  font-family: var(--font-serif);
   line-height: normal;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -201,11 +218,11 @@ html {
   background-color: #fff;
 }
 .article__date {
-  font-family: 'avenir next', avenir, sans-serif;
+  font-family: var(--font-sans);
   font-size: 0.75rem;
 }
 .article__title {
-  font-family: athelas, georgia, serif;
+  font-family: var(--font-serif);
   line-height: normal;
   margin-top: 0.5rem;
 }
@@ -216,6 +233,14 @@ article img {
 .article__content {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
+  & h2,
+  & h3 {
+    margin-top: 1.75em;
+    line-height: 1.3;
+  }
+  & li + li {
+    margin-top: 0.25em;
+  }
 }
 .article-extra {
   margin: 0.5rem auto 0;
@@ -234,7 +259,8 @@ article img {
   padding: 1rem;
 }
 .blog-extras-container__title {
-  margin: 0;
+  margin: 1.33em 0;
+  font-size: 1rem;
   font-weight: bolder;
 }
 .blog-extras-container--center {
@@ -337,7 +363,7 @@ pre {
 pre code {
   display: block;
   padding: 1.25em;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 
 .not-found {
