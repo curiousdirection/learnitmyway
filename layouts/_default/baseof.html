@@ -21,11 +21,9 @@
     {{ block "canonical" . }}
       <link rel="canonical" href="{{ .Permalink }}">
     {{ end }}
-    {{ with resources.Get "css/styles.css" | css.PostCSS (dict "noMap" hugo.IsProduction) }}
-      {{ $css := . }}
-      {{ if hugo.IsProduction }}{{ $css = $css | minify }}{{ end }}
-      <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css" />
-    {{ end }}
+    {{ $css := slice (resources.Get "css/syntax.css") (resources.Get "css/syntax-dark.css") (resources.Get "css/styles.css") | resources.Concat "css/main.css" }}
+    {{ if hugo.IsProduction }}{{ $css = $css | minify }}{{ end }}
+    <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">

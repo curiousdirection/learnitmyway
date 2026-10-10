@@ -1,6 +1,3 @@
-/node_modules
 /public
 /resources
 /static/dist
-yarn-error.log
-.netlify

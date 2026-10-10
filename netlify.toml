@@ -2,15 +2,10 @@
   publish = "public"
   command = "make build"
 
-[dev]
-  command = "hugo server -w"
-  targetPort = 1313
-  autoLaunch = true
-
 [build.environment]
   HUGO_VERSION = "0.147.9"
+  NODE_VERSION = "22.19.0"
   HUGO_ENV = "production"
-  NODE_ENV = "production"
 
 [context.preview.environment]
   HUGO_BASEURL = "https://preview--learnitmyway.netlify.com/"
