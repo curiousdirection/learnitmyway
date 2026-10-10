@@ -1,5 +1,5 @@
 /node_modules
 /public
-dist/
+/resources
 yarn-error.log
 .netlify
