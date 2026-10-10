@@ -20,7 +20,9 @@
     {{ block "canonical" . }}
       <link rel="canonical" href="{{ .Permalink }}">
     {{ end }}
-    <link href='{{ "dist/styles.css" | absURL }}' rel='stylesheet' type="text/css" />
+    {{ $css := resources.Get "dist/styles.css" }}
+    {{ if hugo.IsProduction }}{{ $css = $css | minify }}{{ end }}
+    <link href='{{ $css.RelPermalink | absURL }}' rel='stylesheet' type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
