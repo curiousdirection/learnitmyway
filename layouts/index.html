@@ -1,17 +1,21 @@
 {{ define "main" }}
-<div class="page">
+<div class="page page--index">
   {{ $mainSections := .Site.Params.mainSections | default (slice "post") }}
-  {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-  {{ $section_count := len $section }}
-  {{ if ge $section_count 1 }}
-  {{ $section_name := index (.Site.Params.mainSections) 0 }}
-  {{ range $section }}
-  {{ $url := .Params.existingUrl | default .RelPermalink }}
-  <a href="{{ $url }}" class="index-anchor">
-    {{ .Render "summary" }}
-  </a>
+  {{ $posts := where .Site.RegularPages "Section" "in" $mainSections }}
+  {{ range $posts.GroupByDate "2006" }}
+  <section class="year">
+    <h2 class="year__label">{{ .Key }}</h2>
+    <ul class="post-list">
+      {{ range .Pages }}
+      {{ $url := .Params.existingUrl | default .RelPermalink }}
+      <li>
+        <a href="{{ $url }}" class="post-link">
+          {{ .Render "summary" }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
   {{ end }}
-
 </div>
-{{ end }}
 {{ end }}

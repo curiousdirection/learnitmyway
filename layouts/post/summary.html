@@ -1,18 +1,12 @@
-<div class="summary">
-  {{ if .Date }}
-    <div class="article__date">
-      {{ .Date.Format "January 2, 2006" }}
-    </div>
+<article class="summary">
+  <h3 class="summary__title">{{ .Title }}</h3>
+  {{ with .Params.excerpt }}
+  <p class="summary__excerpt">{{ . }}</p>
   {{ end }}
-  <h2 class="summary__title">
-    {{ .Title }}
-  </h2>
-  <div class="summary__excerpt">
-    {{ .Params.excerpt }}
-  </div>
-  {{ if .Params.publisherInfo }}
-    <div class="article__publisher-info">
-      {{ .Params.publisherInfo }}
-    </div>
-  {{ end }}
-</div>
+  <p class="summary__meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2" }}</time>
+    {{ with .Params.publisherInfo }}
+    <span class="summary__publisher">{{ . }} <span aria-hidden="true">↗</span></span>
+    {{ end }}
+  </p>
+</article>
