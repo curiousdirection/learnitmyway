@@ -14,8 +14,7 @@ Have a look at [How I release updates to my personal website](https://www.learni
 
 ### set up netlify
 
-- `mise install`
-- `brew install hugo` (ideally in sync with netlify.toml)
+- `mise install` (installs Node and Hugo; keep versions in sync with `.nvmrc` and `netlify.toml`)
 - `npm install -g netlify-cli`
 - `netlify login`
 - `netlify link`
