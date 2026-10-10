@@ -4,6 +4,7 @@
 
 [build.environment]
   HUGO_VERSION = "0.147.9"
+  NODE_VERSION = "22.19.0"
   HUGO_ENV = "production"
 
 [context.preview.environment]
