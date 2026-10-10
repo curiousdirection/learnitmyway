@@ -2,8 +2,6 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1bd82c76-3450-45aa-b7b4-cf16ea67e647/deploy-status)](https://app.netlify.com/sites/learnitmyway/deploys)
 
-[![Front‑End_Checklist followed](https://img.shields.io/badge/Front‑End_Checklist-followed-brightgreen.svg)](https://github.com/thedaviddias/Front-End-Checklist/)
-
 This is the source code for [my website](https://www.learnitmyway.com).
 [Hugo](https://gohugo.io/) is used as a static site generator and it is hosted by [Netlify](https://www.netlify.com/).
 The layout and styles originate from the [Ananke](https://github.com/budparr/gohugo-theme-ananke) theme.

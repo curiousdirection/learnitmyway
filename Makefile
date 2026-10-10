@@ -3,7 +3,7 @@
 	dev
 
 build:
-	hugo
+	hugo --minify
 
 dev:
 	npx netlify dev

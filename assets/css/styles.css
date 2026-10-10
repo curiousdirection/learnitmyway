@@ -120,7 +120,7 @@ button:focus-visible {
 .site-header__subheader-text {
   margin: 0.75rem auto 0;
   padding: 1rem;
-  font-size: 1.17rem;
+  font-size: 1.17em;
   font-weight: 300;
   color: white;
 }
@@ -259,12 +259,15 @@ article img {
   padding: 1rem;
 }
 .blog-extras-container__title {
-  margin: 1.33em 0;
-  font-size: 1rem;
+  margin: 0;
   font-weight: bolder;
 }
 .blog-extras-container--center {
   text-align: center;
+}
+.blog-extras-container h2 {
+  font-size: 1em;
+  margin: 1.33em 0;
 }
 .extra-content-items {
   padding-left: 1rem;
@@ -369,4 +372,8 @@ pre code {
 .not-found {
   text-align: center;
   margin: 1rem;
+}
+.not-found h1 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
 }

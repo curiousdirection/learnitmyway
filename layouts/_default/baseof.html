@@ -21,7 +21,9 @@
       <link rel="canonical" href="{{ .Permalink }}">
     {{ end }}
     {{ with resources.Get "css/styles.css" | css.PostCSS (dict "noMap" hugo.IsProduction) }}
-      <link href="{{ .Permalink }}" rel="stylesheet" type="text/css" />
+      {{ $css := . }}
+      {{ if hugo.IsProduction }}{{ $css = $css | minify }}{{ end }}
+      <link href="{{ $css.Permalink }}" rel="stylesheet" type="text/css" />
     {{ end }}
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
