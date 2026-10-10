@@ -61,6 +61,11 @@ html {
   outline-offset: 3px;
 }
 
+::selection {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -83,7 +88,7 @@ html {
   text-underline-offset: 0.15em;
   transition: color 0.15s ease-in;
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: var(--accent);
     text-decoration-thickness: 2px;
   }
@@ -151,7 +156,7 @@ footer .nav {
   display: inline-block;
   transition: color 0.15s ease-in;
   &:hover,
-  &:focus {
+  &:focus-visible {
     color: var(--accent);
   }
 }
@@ -162,7 +167,7 @@ footer .nav {
   transition: fill 0.15s ease-in;
   margin-right: 0.5rem;
   &:hover,
-  &:focus {
+  &:focus-visible {
     fill: var(--accent);
   }
 }
@@ -181,7 +186,7 @@ footer .nav {
   border-top: var(--rule);
   text-decoration: none;
   &:hover .summary__title,
-  &:focus .summary__title {
+  &:focus-visible .summary__title {
     color: var(--link);
     text-decoration: underline;
     text-decoration-thickness: 2px;
