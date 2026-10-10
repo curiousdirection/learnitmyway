@@ -16,10 +16,10 @@ Have a look at [How I release updates to my personal website](https://www.learni
 
 - `mise install`
 - `brew install hugo` (ideally in sync with netlify.toml)
-- `npm install -g netlify-cli`
+- `bun add -g netlify-cli`
 - `netlify login`
 - `netlify link`
-- `npm install`
+- `bun install`
 - `make dev`
 
 ## Useful commands

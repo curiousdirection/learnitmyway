@@ -7,9 +7,9 @@ build: postcss
 	hugo
 
 dev:
-	npx parallelshell 'netlify dev' 'make postcss/watch'
+	bunx parallelshell 'netlify dev' 'make postcss/watch'
 
-postcss := npx postcss src/css/styles.css --dir static/dist/ styles.css
+postcss := bunx postcss src/css/styles.css --dir static/dist/ styles.css
 
 postcss:
 	${postcss}
