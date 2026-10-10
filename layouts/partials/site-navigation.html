@@ -1,8 +1,8 @@
-<header class="masthead">
-  <div class="masthead__inner">
-    <a href="{{ .Site.BaseURL }}" class="wordmark">{{ .Site.Title }}</a>
-    <nav class="masthead__social" aria-label="Elsewhere">
-      {{ partial "social-follow.html" . }}
-    </nav>
+<nav class="nav">
+  <a href="{{ .Site.BaseURL }}" class="nav__title">
+    {{ .Site.Title }}
+  </a>
+  <div>
+    {{ partial "social-follow.html" . }}
   </div>
-</header>
+</nav>

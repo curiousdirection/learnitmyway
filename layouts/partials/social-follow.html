@@ -1,6 +1,6 @@
-{{ $icon_size := "22px" }}
+{{ $icon_size := "32px" }}
 {{ with .Site.Params.github }}
-  <a aria-label="GitHub" href="{{ . }}" class="social-icon" title="GitHub">
+  <a aria-label="github follow" href="{{ . }}" class="social-icon social-icon--github" title="Github link">
     {{ partial "svg/github.svg" (dict "size" $icon_size) }}
   </a>
 {{ end }}

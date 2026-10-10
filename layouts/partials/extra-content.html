@@ -1,13 +1,16 @@
-{{ with $.Params.extraContent }}
-<aside class="related">
-  <h2 class="related__title">You might also like</h2>
-  <ul class="related__list">
-    {{ range $element := . }}
+<section class="blog-extras-container nested-links">
+  <h4>
+    You might also like:
+  </h4>
+  <ul class="extra-content-items">
+    {{ $extraContent := $.Params.extraContent}}
+    {{ range $element := $extraContent }}
     <li>
       <a href="{{ $element.url }}" target="_blank" rel="noopener">{{ $element.title }}</a>
-      {{ with $element.extras }}<span class="related__extras">{{ . }}</span>{{ end }}
+      {{ if $element.extras}}
+      {{ $element.extras }}
+      {{end}}
     </li>
-    {{ end }}
+    {{end}}
   </ul>
-</aside>
-{{ end }}
+</section>

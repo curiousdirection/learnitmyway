@@ -20,8 +20,6 @@
     {{ block "canonical" . }}
       <link rel="canonical" href="{{ .Permalink }}">
     {{ end }}
-    <link rel="preload" href='{{ "fonts/source-serif-4-latin-opsz-normal.woff2" | absURL }}' as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href='{{ "fonts/inter-latin-wght-normal.woff2" | absURL }}' as="font" type="font/woff2" crossorigin>
     <link href='{{ "dist/styles.css" | absURL }}' rel='stylesheet' type="text/css" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -31,7 +29,7 @@
     <link rel="shortcut icon" href="/favicon/favicon.ico">
     <meta name="msapplication-TileColor" content="#004ba0">
     <meta name="msapplication-config" content="/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#fbfaf7">
+    <meta name="theme-color" content="#ffffff">
 
     {{ with .OutputFormats.Get "rss" }}
       <link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
@@ -55,7 +53,7 @@
     <!-- End Cloudflare Web Analytics -->
   </head>
 
-  <body>
+  <body class="body-wrapper">
 
     {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
     <main>
@@ -63,7 +61,10 @@
     </main>
     <footer>
       {{ block "footer" . }}
-        {{ partial "site-footer.html" .}}
+        {{ partial "link-to-repo" .}}
+        {{ partial "site-license.html" .}}
+        {{ partial "privacy-policy.html" .}}
+        {{ block "footer-nav" . }}{{ partial "site-navigation.html" .}}{{ end }}
       {{ end }}
     </footer>
     {{ block "scripts" . }}{{ end }}

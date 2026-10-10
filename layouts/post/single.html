@@ -7,30 +7,29 @@
 {{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
 {{ define "description" }}{{ .Params.excerpt }}{{ end }}
 {{ define "header" }}
+<header></header>
 {{ partial "site-navigation.html" . }}
 {{ end }}
 
 {{ define "main" }}
 <div class="page">
   <article class="article">
-    <header class="article__header">
-      <p class="article__meta">
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        <span aria-hidden="true">·</span>
-        <span>{{ .ReadingTime }} min read</span>
-      </p>
-      <h1 class="article__title">{{ .Title }}</h1>
-    </header>
+    <time class="article__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      {{ .Date.Format "January 2, 2006" }}
+    </time>
+    <h1 class="article__title">{{ .Title }}</h1>
     {{ if and .Params.toc .TableOfContents }}
-    <nav class="article__toc" aria-label="Table of contents">
+    <div class="article__toc nested-links">
       {{ .TableOfContents }}
-    </nav>
-    {{ end }}
-    <div class="prose">
-      {{ .Content }}
     </div>
+    {{ end }}
+    <section class="article__content nested-links">
+      {{ .Content }}
+    </section>
     {{ partial "article-footer.html" . }}
   </article>
-  {{ partial "extra-content.html" . }}
+  <div class="article-extra">
+    {{ partial "extra-content.html" . }}
+  </div>
 </div>
 {{ end }}

@@ -1,5 +1,11 @@
-{{ partial "site-navigation.html" . }}
-<section class="intro">
-  <h1 class="intro__title">{{ .Site.Title }}</h1>
-  <p class="intro__lede">{{ .Site.Params.description }}</p>
-</section>
+<header class="site-header">
+  <div class="site-header__text">
+    <h1 class="site-header__header-text">
+      {{ .Title | default .Site.Title }}
+    </h1>
+    <h3 class="site-header__subheader-text">
+      <i>The more that you read, the more things you will know.
+      The more that you learn, the more places you'll go.</i> - Dr. Seuss
+    </h3>
+  </div>
+</header>
