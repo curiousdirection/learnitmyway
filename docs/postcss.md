@@ -21,5 +21,5 @@ Source: https://github.com/csstools/postcss-preset-env/blob/6.7.0/README.md#feat
 Source: `hugo gen chromastyles --help` (Hugo 0.147.9), https://gohugo.io/commands/hugo_gen_chromastyles/
 
 - `hugo gen chromastyles --style=<name>` prints the stylesheet for a Chroma style; `--omitEmpty` leaves out empty rules
-- `assets/css/syntax.css` is the unmodified `rose-pine-dawn` output
-- `assets/css/syntax-dark.css` is the `rose-pine --omitEmpty` output with comments and the `.bg` rule removed, every selector scoped twice so it applies in dark mode: under `:root:not([data-theme="light"])` inside `@media (prefers-color-scheme: dark)`, and under `:root[data-theme="dark"]` for the theme toggle. The `.chroma` background is dropped so `--code-background` from `styles.css` applies
+- `assets/css/syntax.css` is the unmodified `github` output
+- `assets/css/syntax-dark.css` is the `github-dark --omitEmpty` output with comments and the `.bg` rule removed, every selector scoped twice so it applies in dark mode: under `:root:not([data-theme="light"])` inside `@media (prefers-color-scheme: dark)`, and under `:root[data-theme="dark"]` for the theme toggle. The `.chroma` background is dropped so `--code-background` from `styles.css` applies, and `.na`, `.nx`, `.nb`, `.bp` and `.p`, which `github` colours but `github-dark` does not, are reset to the `github-dark` text colour

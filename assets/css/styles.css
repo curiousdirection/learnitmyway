@@ -98,13 +98,14 @@ html {
 
 .nested-links a {
   color: var(--ink);
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--ink-soft);
+  text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
-  transition: color 0.15s ease-in;
+  transition: color 0.15s ease-in, text-decoration-color 0.15s ease-in;
   &:hover,
   &:focus-visible {
     color: var(--accent);
+    text-decoration-color: var(--accent);
   }
 }
 
