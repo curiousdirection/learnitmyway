@@ -16,7 +16,6 @@ pygmentsUseClasses = true
   description = "David's learning experiences as a self-taught software developer"
   shareImage = "img/share.png"
   author = "David"
-  about = "Hi, I'm David. I'm a product-minded senior engineer with 10+ years of experience building full-stack web applications. Most recently, I was the tech lead of an e-commerce product team. Before that, I was a structural engineer, and I taught myself to code. I created this website so I could share my learning experiences along the way."
   github = "https://github.com/curiousdirection"
   repoName = "learnitmyway"
   repoBranch = "main"
