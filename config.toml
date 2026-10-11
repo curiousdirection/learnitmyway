@@ -15,7 +15,6 @@ pygmentsUseClasses = true
 [params]
   description = "David's learning experiences as a self-taught software developer"
   shareImage = "img/share.png"
-  author = "David"
   github = "https://github.com/curiousdirection"
   repoName = "learnitmyway"
   repoBranch = "main"
