@@ -1,0 +1,21 @@
+{{- $url := .Params.shareImage | default site.Params.shareImage | absURL -}}
+{{- if and .IsPage (not .Params.shareImage) -}}
+  {{- $base := resources.Get "img/share-base.png" -}}
+  {{- $font := resources.Get "fonts/Inter-Bold.ttf" -}}
+  {{- $size := cond (gt (len .Title) 50) 56 64 -}}
+  {{- $canvas := $base.Crop "1000x340 Center" -}}
+  {{- $text := images.Text .Title (dict
+    "font" $font
+    "color" "#1f2a44"
+    "size" $size
+    "linespacing" (mul $size 0.25 | int)
+    "alignx" "center"
+    "aligny" "center"
+    "x" 500
+    "y" 170
+  ) -}}
+  {{- $title := $canvas | images.Filter $text -}}
+  {{- $image := $base | images.Filter (images.Overlay $title 100 145) -}}
+  {{- $url = $image.Permalink -}}
+{{- end -}}
+{{- return $url -}}
