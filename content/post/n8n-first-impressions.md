@@ -47,6 +47,8 @@ In the third version, I added a human in the loop. After the digest is posted, S
 
 Everything I built fit within the 14-day free trial, which came with 800 credits for the n8n assistant and $2 of gateway credit for the AI steps in the workflow. Building the three versions used almost all of the 800 assistant credits. Running the workflow about 20 times only used $0.49 of the gateway credit.
 
+The assistant credits are the real limit. Three short build sessions nearly used them up, so I wouldn't have been able to build much more without upgrading.
+
 ## Supporting a non-US company
 
 n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a company from somewhere else that can compete.
@@ -62,6 +64,6 @@ There are a few things that could improve the workflow:
 
 ## Final thoughts
 
-I went from nothing to a workflow that was useful in a few hours. Agent mode did most of the building, everything fit within the free trial and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+I went from nothing to a workflow that was useful in a few hours. Agent mode did most of the building, everything just about fit within the free trial and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
 
 _Disclaimer: Parts of this article were drafted with the help of an AI assistant. The workflow, the experience and the opinions are my own._
