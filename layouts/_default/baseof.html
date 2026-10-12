@@ -69,6 +69,17 @@
       data-cf-beacon='{"token": "7d4d1242c45c496383be6737fd1bb89d"}'>
     </script>
     <!-- End Cloudflare Web Analytics -->
+
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          {
+            "where": { "href_matches": "/*" },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body class="body-wrapper">
