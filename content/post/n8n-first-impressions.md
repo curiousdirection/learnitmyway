@@ -15,9 +15,9 @@ I recently tried [n8n](https://n8n.io/) for the first time and was surprised how
 <!--more-->
 <!-- og:description -->
 
-## What we built
+## What I built
 
-The idea was simple. Read the Hacker News jobs feed, find tech lead, technical project manager, AI engineer and software engineer roles in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. We built it in three versions, each taking less than an hour.
+The idea was simple. Read the Hacker News jobs feed, find tech lead, technical project manager, AI engineer and software engineer roles in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. I built it in three versions, each taking less than an hour.
 
 ## Useful within an hour
 
@@ -33,27 +33,27 @@ Most of the workflow was built with agent mode. I described what I wanted, it ad
 
 ![The second version of the workflow with an AI agent](/img/n8n/step-2.webp)
 
-In the second version, we turned the extraction step into an agent with a tool that can fetch the job page. A lot of postings had missing data, so being able to read the job ad resulted in better data. Not only that, but the number of matches went from 4 to 9!
+In the second version, I asked it to turn the extraction step into an agent with a tool that can fetch the job page. A lot of postings had missing data, so being able to read the job ad resulted in better data. Not only that, but the number of matches went from 4 to 9!
 
 ![The third version of the workflow that saves chosen roles](/img/n8n/step-3.webp)
 
-In the third version, we added a human in the loop. After the digest is posted, Slack asks which roles to save and the chosen roles are upserted into a `saved_jobs` table.
+In the third version, I added a human in the loop. After the digest is posted, Slack asks me which roles I want to save and the chosen roles are upserted into a `saved_jobs` table.
 
 ## The free plan goes a long way
 
-Everything we built fit within the free plan. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so we could try out the AI features for free.
+Everything I built fit within the free plan. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so I could try out the AI features for free.
 
 ## Supporting a European company
 
 n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a European company that can compete. It's nice to see a product from Europe that is this polished.
 
-## What we could do next
+## What I would do next
 
 There are a few things that could improve the workflow:
 
-- **A cron job**: At the moment the workflow runs manually. A schedule trigger would mean the digest arrives every morning without anyone having to think about it.
-- **Keep track of what has already been sent**: This step was removed to keep things simple while iterating, but without it the same postings appear in every digest.
-- **Do something with saved jobs**: Right now the saved jobs just sit in a table. We could add another step where an agent looks up more details about each company (e.g. its tech stack and funding).
+- **A cron job**: At the moment I run the workflow manually. A schedule trigger would mean the digest arrives every morning without me thinking about it.
+- **Keep track of what has already been sent**: I removed this step to keep things simple while I was iterating, but without it the same postings appear in every digest.
+- **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. its tech stack and funding).
 
 ## Final thoughts
 
