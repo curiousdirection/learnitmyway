@@ -45,7 +45,7 @@ In the third version, I added a human in the loop. After the digest is posted, S
 
 ## Free trial
 
-Everything I built fit within the free trial, which came with 800 credits for the n8n assistant and $2 of gateway credit for the AI steps in the workflow. Building the three versions used almost all of the 800 assistant credits. Running the workflow about 20 times only used $0.49 of the gateway credit.
+Everything I built fit within the 14-day free trial, which came with 800 credits for the n8n assistant and $2 of gateway credit for the AI steps in the workflow. Building the three versions used almost all of the 800 assistant credits. Running the workflow about 20 times only used $0.49 of the gateway credit.
 
 ## Supporting a non-US company
 
