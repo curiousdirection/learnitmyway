@@ -63,4 +63,4 @@ There are a few things that could improve the workflow:
 
 I went from nothing to a workflow that was useful in a few hours. Agent mode was very helpful, the free plan was more than enough and it's nice to support a European company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
 
-_Disclaimer: Parts of this article were drafted with the help of Claude, an AI assistant. The workflow, the experience and the opinions are my own._
+_Disclaimer: Parts of this article were drafted with the help of an AI assistant. The workflow, the experience and the opinions are my own._
