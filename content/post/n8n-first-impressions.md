@@ -5,7 +5,7 @@ date: 2026-10-12
 excerpt: In this article, I share my first impressions of n8n after building a workflow with it in a few hours.
 url: n8n-first-impressions
 canonical: true
-shareImage: /img/n8n/step-3.webp
+shareImage: /img/n8n/slack-digest.png
 twitterLink:
 extraContent:
 ---
