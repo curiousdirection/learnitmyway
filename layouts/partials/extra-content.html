@@ -1,10 +1,10 @@
+{{ with .Params.extraContent }}
 <section class="blog-extras-container nested-links">
   <h2>
     You might also like:
   </h2>
   <ul class="extra-content-items">
-    {{ $extraContent := $.Params.extraContent}}
-    {{ range $element := $extraContent }}
+    {{ range $element := . }}
     <li>
       <a href="{{ $element.url }}" target="_blank" rel="noopener">{{ $element.title }}</a>
       {{ if $element.extras}}
@@ -14,3 +14,4 @@
     {{end}}
   </ul>
 </section>
+{{ end }}
