@@ -54,7 +54,7 @@ The assistant credits are the real limit. Three short build sessions nearly used
 There are a few things that could improve the workflow:
 
 - **A cron job**: At the moment I run the workflow manually. A schedule trigger would mean the digest arrives every morning without me thinking about it.
-- **Keep track of what has already been sent**: An earlier version did this, but I removed it to keep things simple while I was iterating. Without it, the same postings appear in every digest.
+- **Keep track of what has already been sent**: At the moment the same postings appear in every digest.
 - **Normalise salaries and currencies before ranking**: Some postings only say "competitive salary", some include equity and some are in a different currency (e.g. CAD), so the ranking is only roughly right.
 - **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. tech stack, funding and financial health).
 
