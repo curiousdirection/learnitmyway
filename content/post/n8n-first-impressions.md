@@ -47,13 +47,13 @@ Everything I built fit within the free plan. It comes with some agent credits fo
 
 n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a European company that can compete. It's nice to see a product from Europe that is this polished.
 
-## What I would do next
+## Next steps
 
 There are a few things that could improve the workflow:
 
 - **A cron job**: At the moment I run the workflow manually. A schedule trigger would mean the digest arrives every morning without me thinking about it.
 - **Keep track of what has already been sent**: I removed this step to keep things simple while I was iterating, but without it the same postings appear in every digest.
-- **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. its tech stack and funding).
+- **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. tech stack, funding, finacnical health, etc.).
 
 ## Final thoughts
 
