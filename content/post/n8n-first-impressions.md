@@ -47,9 +47,9 @@ In the third version, I added a human in the loop. After the digest is posted, S
 
 Everything I built fit within the free plan. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so I could try out the AI features for free.
 
-## Supporting a European company
+## Supporting a non-US company
 
-n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a European company that can compete. It's nice to see a product from Europe that is this polished.
+n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a company from somewhere else that can compete. It's nice to see a non-US product that is this polished.
 
 ## Next steps
 
@@ -62,6 +62,6 @@ There are a few things that could improve the workflow:
 
 ## Final thoughts
 
-I went from nothing to a workflow that was useful in a few hours. Agent mode was very helpful, the free plan was more than enough and it's nice to support a European company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+I went from nothing to a workflow that was useful in a few hours. Agent mode was very helpful, the free plan was more than enough and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
 
 _Disclaimer: Parts of this article were drafted with the help of an AI assistant. The workflow, the experience and the opinions are my own._
