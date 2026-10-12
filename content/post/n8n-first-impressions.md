@@ -10,7 +10,7 @@ twitterLink:
 extraContent:
 ---
 
-I recently tried [n8n](https://n8n.io/) for the first time and was surprised how quickly it became useful. In this article, I share my first impressions after building a workflow with it in a few hours.
+I recently tried [n8n](https://n8n.io/) for the first time. In this article, I share my first impressions after building a workflow with it in a few hours.
 
 <!--more-->
 <!-- og:description -->
@@ -29,7 +29,7 @@ This is what the digest looks like:
 
 The first version reads the feed, uses an OpenAI model to extract the role, location and salary from each posting, filters for the target roles and posts a ranked digest to Slack. Out of 20 postings, it found 4 matches.
 
-It was useful quickly. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description, and had something running in no time.
+I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description.
 
 ## Iterating on the workflow
 
@@ -45,7 +45,7 @@ In the third version, I added a human in the loop. After the digest is posted, S
 
 ## Free trial
 
-Everything I built fit within the free trial. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so I could try out the AI features for free.
+Everything I built fit within the free trial, which came with 800 credits for the n8n assistant and $2 of gateway credit for the AI steps in the workflow. Building the three versions used almost all of the 800 assistant credits. Running the workflow about 20 times only used $0.49 of the gateway credit.
 
 ## Supporting a non-US company
 
