@@ -17,7 +17,7 @@ I recently tried [n8n](https://n8n.io/) for the first time and was surprised how
 
 ## What I built
 
-The idea was simple. Read the Hacker News jobs feed, find tech lead, technical project manager, AI engineer and software engineer roles in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. I built it in three versions, each taking less than an hour.
+The idea was simple. Read the Hacker News jobs feed, find given roles (e.g. Software Engineer) in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. I built it in three versions, each taking less than an hour.
 
 ## Useful within an hour
 
