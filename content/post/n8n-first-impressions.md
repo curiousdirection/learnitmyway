@@ -33,7 +33,7 @@ I didn't read any docs, I didn't set up any infrastructure and I didn't write an
 
 ## Iterating on the workflow
 
-From there, I kept iterating. Each time, I described what I wanted, agent mode added the nodes and connected them, and I tweaked things by hand. For example, I changed the location.
+From there, I kept iterating. Each time, I described what I wanted, agent mode added the nodes and connected them, and I tweaked things by hand.
 
 ![The second version of the workflow with an AI agent](/img/n8n/step-2.webp)
 
@@ -49,21 +49,17 @@ Everything I built fit within the 14-day free trial, which came with 800 credits
 
 The assistant credits are the real limit. Three short build sessions nearly used them up, so I wouldn't have been able to build much more without upgrading.
 
-## Supporting a non-US company
-
-n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a company from somewhere else that can compete.
-
 ## Next steps
 
 There are a few things that could improve the workflow:
 
 - **A cron job**: At the moment I run the workflow manually. A schedule trigger would mean the digest arrives every morning without me thinking about it.
-- **Keep track of what has already been sent**: I removed this step to keep things simple while I was iterating, but without it the same postings appear in every digest.
+- **Keep track of what has already been sent**: At the moment the same postings appear in every digest.
 - **Normalise salaries and currencies before ranking**: Some postings only say "competitive salary", some include equity and some are in a different currency (e.g. CAD), so the ranking is only roughly right.
 - **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. tech stack, funding and financial health).
 
 ## Final thoughts
 
-I went from nothing to a workflow that was useful in a few hours. Agent mode did most of the building, everything just about fit within the free trial and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+I went from nothing to a workflow that was useful in a few hours. Agent mode did most of the building and everything just about fit within the free trial. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
 
 _Disclaimer: Parts of this article were drafted with the help of an AI assistant. The workflow, the experience and the opinions are my own._
