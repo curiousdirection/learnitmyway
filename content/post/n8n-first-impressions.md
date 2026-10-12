@@ -31,9 +31,9 @@ The first version reads the feed, uses an OpenAI model to extract the role, loca
 
 I was amazed how quickly the product was useful. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description, and had something running in no time.
 
-## Agent mode did the heavy lifting
+## Iterating on the workflow
 
-Most of the workflow was built with agent mode. I described what I wanted, it added the nodes and connected them, and I tweaked things by hand. For example, I changed the location and removed a step that recorded which postings had already been parsed.
+From there, I kept iterating. Each time, I described what I wanted, agent mode added the nodes and connected them, and I tweaked things by hand. For example, I changed the location and removed a step that recorded which postings had already been parsed.
 
 ![The second version of the workflow with an AI agent](/img/n8n/step-2.webp)
 
