@@ -29,7 +29,7 @@ This is what the digest looks like:
 
 The first version reads the feed, uses an OpenAI model to extract the role, location and salary from each posting, filters for the target roles and posts a ranked digest to Slack. Out of 20 postings, it found 4 matches.
 
-I was amazed how quickly the product was useful. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description, and had something running in no time.
+It was useful quickly. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description, and had something running in no time.
 
 ## Iterating on the workflow
 
@@ -37,19 +37,19 @@ From there, I kept iterating. Each time, I described what I wanted, agent mode a
 
 ![The second version of the workflow with an AI agent](/img/n8n/step-2.webp)
 
-In the second version, I asked it to turn the extraction step into an agent with a tool that can fetch the job page. A lot of postings had missing data, so being able to read the job ad resulted in better data. Not only that, but the number of matches went from 4 to 9!
+In the second version, I asked it to turn the extraction step into an agent with a tool that can fetch the job page. A lot of postings had missing data, so being able to read the job ad resulted in better data. It also found 9 matches instead of 4.
 
 ![The third version of the workflow that saves chosen roles](/img/n8n/step-3.webp)
 
 In the third version, I added a human in the loop. After the digest is posted, Slack asks me which roles I want to save and the chosen roles are upserted into a `saved_jobs` table.
 
-## The free plan goes a long way
+## Free trial
 
-Everything I built fit within the free plan. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so I could try out the AI features for free.
+Everything I built fit within the free trial. It comes with some agent credits for building workflows with agent mode and some LLM credits for running them, so I could try out the AI features for free.
 
 ## Supporting a non-US company
 
-n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a company from somewhere else that can compete. It's nice to see a non-US product that is this polished.
+n8n is based in Berlin. The US dominates so much of the software I use every day, especially when it comes to AI, so I like the idea of supporting a company from somewhere else that can compete.
 
 ## Next steps
 
@@ -62,6 +62,6 @@ There are a few things that could improve the workflow:
 
 ## Final thoughts
 
-I went from nothing to a workflow that was useful in a few hours. Agent mode was very helpful, the free plan was more than enough and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+I went from nothing to a workflow that was useful in a few hours. Agent mode did most of the building, everything fit within the free trial and it's nice to support a non-US company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
 
 _Disclaimer: Parts of this article were drafted with the help of an AI assistant. The workflow, the experience and the opinions are my own._
