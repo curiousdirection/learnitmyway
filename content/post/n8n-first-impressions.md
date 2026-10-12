@@ -33,7 +33,7 @@ I was amazed how quickly the product was useful. I didn't read any docs, I didn'
 
 ## Iterating on the workflow
 
-From there, I kept iterating. Each time, I described what I wanted, agent mode added the nodes and connected them, and I tweaked things by hand. For example, I changed the location and removed a step that recorded which postings had already been parsed.
+From there, I kept iterating. Each time, I described what I wanted, agent mode added the nodes and connected them, and I tweaked things by hand. For example, I changed the location.
 
 ![The second version of the workflow with an AI agent](/img/n8n/step-2.webp)
 
