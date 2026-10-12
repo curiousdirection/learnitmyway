@@ -17,7 +17,11 @@ I recently tried [n8n](https://n8n.io/) for the first time and was surprised how
 
 ## What I built
 
-The idea was simple. Read the Hacker News jobs feed, find given roles (e.g. Software Engineer) in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. I built it in three versions, each taking less than an hour.
+The idea was simple. Read the Hacker News jobs feed, find certain roles (e.g. software engineer) in a given location (San Francisco) or remote, rank them by salary and post a digest to Slack. I built it in three versions, each taking less than an hour.
+
+This is what the digest looks like:
+
+![The job digest posted to Slack](/img/n8n/slack-digest.png)
 
 ## Useful within an hour
 
@@ -25,7 +29,7 @@ The idea was simple. Read the Hacker News jobs feed, find given roles (e.g. Soft
 
 The first version reads the feed, uses an OpenAI model to extract the role, location and salary from each posting, filters for the target roles and posts a ranked digest to Slack. Out of 20 postings, it found 4 matches.
 
-I was amazed how quickly the product was useful. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. I described what I wanted to the agent and had something running in no time.
+I was amazed how quickly the product was useful. I didn't read any docs, I didn't set up any infrastructure and I didn't write any code. Instead, I used agent mode, n8n's AI assistant that builds workflows from a description, and had something running in no time.
 
 ## Agent mode did the heavy lifting
 
@@ -53,8 +57,10 @@ There are a few things that could improve the workflow:
 
 - **A cron job**: At the moment I run the workflow manually. A schedule trigger would mean the digest arrives every morning without me thinking about it.
 - **Keep track of what has already been sent**: I removed this step to keep things simple while I was iterating, but without it the same postings appear in every digest.
-- **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. tech stack, funding, financial health, etc.).
+- **Do something with saved jobs**: Right now the saved jobs just sit in a table. I could add another step where an agent looks up more details about each company (e.g. tech stack, funding and financial health).
 
 ## Final thoughts
 
-I went from nothing to a workflow that was useful in a few hours, mostly by describing what I wanted. Agent mode was very helpful, the free plan was more than enough and it's nice to support a European company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+I went from nothing to a workflow that was useful in a few hours. Agent mode was very helpful, the free plan was more than enough and it's nice to support a European company while doing it. If you have a repetitive task that involves a few different services, I would recommend giving n8n a try.
+
+_Disclaimer: Parts of this article were drafted with the help of Claude, an AI assistant. The workflow, the experience and the opinions are my own._
