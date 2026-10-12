@@ -1,4 +1,6 @@
-# Speculation Rules
+# Web platform
+
+## Speculation Rules
 
 Sources: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/speculationrules, https://developer.mozilla.org/en-US/docs/Web/API/Speculation_Rules_API
 
