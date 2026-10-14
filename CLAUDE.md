@@ -2,6 +2,11 @@
 
 - Dependencies are pinned
 - Don't add new comments
+- Use the Hugo version in `mise.toml`, which matches Netlify, and check `make build` passes with no broken internal links
+- Agree on design changes with me before making them
+- Show before/after screenshots (desktop and mobile) for visual changes
+- Keep each PR to one change
+- Write blog text in my own tone
 
 ## Keeping up to date with library docs
 
