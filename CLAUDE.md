@@ -2,6 +2,7 @@
 
 - Dependencies are pinned
 - Don't add new comments
+- When drafting or editing blog articles use the tone of voice that is evident in previous articles
 
 ## Keeping up to date with library docs
 
