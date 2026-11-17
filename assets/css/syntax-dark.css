@@ -1,6 +1,5 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .chroma { color: #e6edf3 }
-  :root:not([data-theme="light"]) .chroma .err { color: #f85149 }
   :root:not([data-theme="light"]) .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
   :root:not([data-theme="light"]) .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0 }
   :root:not([data-theme="light"]) .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0 }
@@ -79,7 +78,6 @@
 }
 
 :root[data-theme="dark"] .chroma { color: #e6edf3 }
-:root[data-theme="dark"] .chroma .err { color: #f85149 }
 :root[data-theme="dark"] .chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
 :root[data-theme="dark"] .chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0 }
 :root[data-theme="dark"] .chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0 }
