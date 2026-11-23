@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "make build"
+  command = "make build check-internal-links"
 
 [build.environment]
   HUGO_VERSION = "0.147.9"

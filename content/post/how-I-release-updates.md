@@ -11,7 +11,7 @@ extraContent:
   title: "Learning material – software development"}
   - {url: "https://www.learnitmyway.com/learn-javascript-with-these-resources/", 
   title: "Learn JavaScript with these resources"}
-  - {url: "https://www.learnitmyway.com/2017/10/23/what-i-learned-by-developing-enterprise-software-for-the-first-time",
+  - {url: "https://medium.freecodecamp.org/what-i-learned-by-developing-enterprise-software-for-the-first-time-d630481ce6eb",
   title: "What I learned by developing enterprise software for the first time"}
   
 ---
@@ -64,7 +64,7 @@ I try to keep my changes/commits as small as possible. I do this because it help
 and I know if something goes wrong I have something to fall back on that has a high chance of being stable.
 The smaller the commit the easier it is to figure out what and when something went wrong.
 I learnt this
-lesson <a href="https://www.learnitmyway.com/2017/10/23/what-i-learned-by-developing-enterprise-software-for-the-first-time" 
+lesson <a href="https://medium.freecodecamp.org/what-i-learned-by-developing-enterprise-software-for-the-first-time-d630481ce6eb" 
 target="_blank" rel="noopener">developing enterprise software for the first time</a>.
 
 ### Final thoughts
