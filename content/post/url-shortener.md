@@ -1,7 +1,7 @@
 ---
-title: "What I learned building a URL shortener for real"
+title: "I built a URL shortener!"
 type: post
-date: 2026-11-23T12:57:08+01:00
+date: 2026-11-23
 excerpt: In this article, I turn the classic URL shortener system design question into a real implementation and share the decisions that shaped it.
 url: url-shortener
 canonical: true
