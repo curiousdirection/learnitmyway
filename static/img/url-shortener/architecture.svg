@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 400" width="1060" height="400" role="img" aria-labelledby="title">
+  <title id="title">URL Shortener architecture: Client to CloudFront, which serves the web page from S3 and calls the Lambda function, which reads and writes the urls table in DynamoDB.</title>
+  <style>
+    text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 12px; fill: #59636e; text-anchor: middle; }
+    .t { font-size: 14px; fill: #1f2328; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-weight: 600; }
+    .box { fill: #f6f8fa; stroke: #57606a; stroke-width: 1.5; }
+    .rim { fill: none; stroke: #57606a; stroke-width: 1.5; }
+    .group { fill: none; stroke: #8c959f; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .edge { fill: none; stroke: #57606a; stroke-width: 1.5; }
+    .back { stroke-dasharray: 5 4; }
+    .head { fill: #57606a; }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #9198a1; }
+      .t { fill: #e6edf3; }
+      .box { fill: #161b22; stroke: #8b949e; }
+      .rim, .edge { stroke: #8b949e; }
+      .group { stroke: #6e7681; }
+      .head { fill: #8b949e; }
+    }
+  </style>
+  <defs>
+    <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path class="head" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="10" y="175" width="90" height="50" rx="25"/>
+  <text class="t" x="55" y="205">Client</text>
+
+  <line class="edge" x1="100" y1="200" x2="238" y2="200" marker-end="url(#head)"/>
+  <text x="169" y="152">GET /</text>
+  <text x="169" y="168">POST /api/urls</text>
+  <text x="169" y="184">GET /:code</text>
+
+  <rect class="box" x="240" y="140" width="170" height="120" rx="6"/>
+  <text class="t" x="325" y="180">CloudFront</text>
+  <text x="325" y="202">caches redirects;</text>
+  <text x="325" y="219">rate limits (AWS WAF)</text>
+  <text x="325" y="236">at full scale</text>
+
+  <path class="edge" d="M325,140 V50 H598" marker-end="url(#head)"/>
+  <text x="460" y="40">signed; only on a cache miss</text>
+
+  <path class="box" d="M600,28 a75,8 0 0 1 150,0 v48 a75,8 0 0 1 -150,0 Z"/>
+  <path class="rim" d="M600,28 a75,8 0 0 0 150,0"/>
+  <text class="t" x="675" y="58">S3</text>
+  <text x="675" y="75">the web page</text>
+
+  <line class="edge" x1="410" y1="165" x2="568" y2="165" marker-end="url(#head)"/>
+  <text x="480" y="141">signed call; only on a</text>
+  <text x="480" y="155">cache miss for GET</text>
+  <line class="edge back" x1="570" y1="185" x2="412" y2="185" marker-end="url(#head)"/>
+  <text x="480" y="203">201 / 409 / 302 / 404</text>
+
+  <rect class="group" x="550" y="110" width="250" height="280" rx="8"/>
+  <text x="675" y="130">Lambda function (function URL, HTTPS)</text>
+  <rect class="box" x="570" y="145" width="210" height="50" rx="6"/>
+  <text class="t mono" x="675" y="166">app.ts</text>
+  <text x="675" y="184">routes + zod validation</text>
+  <line class="edge" x1="675" y1="195" x2="675" y2="233" marker-end="url(#head)"/>
+  <rect class="box" x="570" y="235" width="210" height="50" rx="6"/>
+  <text class="t mono" x="675" y="256">urlService.ts</text>
+  <text x="675" y="274">create / resolve</text>
+  <line class="edge" x1="675" y1="285" x2="675" y2="323" marker-end="url(#head)"/>
+  <text x="685" y="308" style="text-anchor: start">no alias</text>
+  <rect class="box" x="570" y="325" width="210" height="50" rx="6"/>
+  <text class="t mono" x="675" y="346">codeGenerator.ts</text>
+  <text x="675" y="364">7 random base62 characters</text>
+
+  <line class="edge" x1="780" y1="252" x2="903" y2="252" marker-end="url(#head)"/>
+  <text x="842" y="228">PutItem if</text>
+  <text x="842" y="242">code is free</text>
+  <line class="edge" x1="780" y1="272" x2="903" y2="272" marker-end="url(#head)"/>
+  <text x="842" y="290">GetItem</text>
+
+  <rect class="group" x="890" y="200" width="160" height="140" rx="8"/>
+  <text x="970" y="220">DynamoDB (on-demand)</text>
+  <path class="box" d="M905,243 a65,8 0 0 1 130,0 v74 a65,8 0 0 1 -130,0 Z"/>
+  <path class="rim" d="M905,243 a65,8 0 0 0 130,0"/>
+  <text class="t mono" x="970" y="280">urls</text>
+  <text x="970" y="298">code PK, long_url</text>
+</svg>

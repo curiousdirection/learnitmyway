@@ -6,7 +6,7 @@ draft: true
 excerpt: In this article, I explain the design of a URL shortener I built and share the things the classic system design interview tends to leave out.
 url: url-shortener
 canonical: true
-shareImage: /img/url-shortener/architecture.svg
+shareImage:
 twitterLink:
 extraContent:
 ---
@@ -34,7 +34,8 @@ The URL shortener is a classic system design interview question. I recently [bui
 
 ## The design
 
-- Architecture diagram (copy `docs/architecture.svg` from the url-shortener repo).
+![Architecture: the client calls CloudFront, which serves the web page from S3 and calls the Lambda function, which reads and writes the urls table in DynamoDB](/img/url-shortener/architecture.svg)
+
 - **Creating a link:** generate a random 7-character code and write it only if it's free. A taken alias returns `409`.
 - **Following a link:** CloudFront answers from its cache. On a miss, the function reads the table by code and returns a `302`.
 - **Caching the redirect:** the `302` tells CloudFront to keep it for a year but the browser to keep nothing, so taking a link down only needs a cache invalidation.
