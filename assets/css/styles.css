@@ -8,6 +8,8 @@
   --code-background: #f4eddc;
   --moon-display: block;
   --sun-display: none;
+  --light-image-display: inline;
+  --dark-image-display: none;
 
   --rule: 0.15em dotted var(--ink);
 
@@ -38,6 +40,8 @@
     --code-background: #26231e;
     --moon-display: none;
     --sun-display: block;
+    --light-image-display: none;
+    --dark-image-display: inline;
   }
 }
 
@@ -50,6 +54,8 @@
   --code-background: #26231e;
   --moon-display: none;
   --sun-display: block;
+  --light-image-display: none;
+  --dark-image-display: inline;
 }
 
 html {
@@ -306,6 +312,12 @@ body {
 article img {
   max-width: 100%;
   height: auto;
+}
+.image--light {
+  display: var(--light-image-display);
+}
+.image--dark {
+  display: var(--dark-image-display);
 }
 .article__content {
   margin-top: 0.5rem;
