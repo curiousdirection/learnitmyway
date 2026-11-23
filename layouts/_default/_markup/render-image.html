@@ -1,9 +1,21 @@
-<a href="{{ .Destination | safeURL }}">
+{{- $src := .Destination -}}
+{{- $ext := path.Ext $src -}}
+{{- $dark := printf "%s-dark%s" (strings.TrimSuffix $ext $src) $ext -}}
+{{- $hasDark := and $ext (strings.HasPrefix $src "/") (fileExists (path.Join "static" $dark)) -}}
+{{- $alt := .PlainText -}}
+{{- $title := .Title -}}
+{{- $images := slice (dict "src" $src "class" (cond $hasDark "image--light" "")) -}}
+{{- if $hasDark -}}
+  {{- $images = $images | append (dict "src" $dark "class" "image--dark") -}}
+{{- end -}}
+{{- range $images -}}
+<a href="{{ .src | safeURL }}"{{ with .class }} class="{{ . }}"{{ end }}>
   {{- /**/ -}}
-  <img src="{{ .Destination | safeURL }}"
-    {{- with .PlainText }} alt="{{ . }}"{{ end -}}
-    {{- with .Title }} title="{{ . }}"{{ end -}}
+  <img src="{{ .src | safeURL }}"
+    {{- with $alt }} alt="{{ . }}"{{ end -}}
+    {{- with $title }} title="{{ . }}"{{ end -}}
   >
   {{- /**/ -}}
 </a>
+{{- end -}}
 {{- /**/ -}}
