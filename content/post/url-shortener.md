@@ -21,6 +21,9 @@ The URL shortener is a classic system design interview question. I recently [bui
 ## What I built
 
 - One sentence on what it does: give it a long URL (and optionally an alias) and get a short one back.
+
+![The web page, with a link to this article shortened to a 7-character code](/img/url-shortener/web-page.png)
+
 - The stack: Node, TypeScript and Hono, running on Lambda, with the links in DynamoDB and CloudFront in front.
 - It's a design exercise: sized for the scale below but running on free or nearly free infrastructure.
 
