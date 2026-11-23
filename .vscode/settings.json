@@ -2,7 +2,7 @@
   "workbench.colorCustomizations": {
     "activityBar.background": "#96c2ff",
     "activityBar.activeBackground": "#96c2ff",
-    "activityBar.activeBorder": "#ff006b",
+    "activityBar.activeBorder": "#15202b",
     "activityBar.foreground": "#15202b",
     "activityBar.inactiveForeground": "#15202b99",
     "activityBarBadge.background": "#ff006b",
@@ -16,8 +16,17 @@
     "statusBar.foreground": "#15202b",
     "commandCenter.border": "#15202b99",
     "sash.hoverBorder": "#96c2ff",
-    "statusBarItem.remoteBackground": "#63a4ff",
-    "statusBarItem.remoteForeground": "#15202b"
+    "statusBarItem.remoteBackground": "#ffdfec",
+    "statusBarItem.remoteForeground": "#15202b",
+    "activityBarTop.activeBackground": "#96c2ff",
+    "activityBarTop.activeBorder": "#15202b",
+    "activityBarTop.background": "#96c2ff",
+    "activityBarTop.foreground": "#15202b",
+    "activityBarTop.inactiveForeground": "#15202b99",
+    "commandCenter.foreground": "#15202b",
+    "statusBar.debuggingBackground": "#63a4ff",
+    "statusBar.debuggingForeground": "#15202b",
+    "statusBar.inactiveBackground": "#63a4ff"
   },
   "[html]": {
     "editor.formatOnSave": false
@@ -25,5 +34,8 @@
   "[markdown]": {
     "editor.formatOnSave": false
   },
-  "peacock.color": "#63a4ff"
+  "peacock.color": "#63a4ff",
+  "cSpell.words": [
+    "shortener"
+  ]
 }
