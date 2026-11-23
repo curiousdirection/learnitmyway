@@ -5,7 +5,7 @@ date: 2026-11-23T12:57:08+01:00
 excerpt: In this article, I turn the classic URL shortener system design question into a real implementation and share the decisions that shaped it.
 url: url-shortener
 canonical: true
-shareImage: /img/url-shortener/architecture.svg
+shareImage: /img/url-shortener/architecture.png
 twitterLink:
 extraContent:
 ---
@@ -42,29 +42,29 @@ I have been brushing up on my system design skills and I thought to myself "what
 
 ### Hitting a short URL
 
-1. When a user fetches a short URL (e.g. your-domain.com/abcd123) an HTTP GET request is sent to /:code, which is served by a Lambda function
-2. The function fetches the short code from DynamoDB and returns a 302 Found status code with the URL to redirect to
-3. If the code is not found (DynamoDB defaults to being eventually consistent) a consistent read is made, so a link created a moment ago doesn't return a 404
-4. The CloudFront CDN caches the redirect for one year, but browsers don't cache it at all
-5. When the same short URL is fetched again the cached response is served from the CDN
+1. When a user fetches a short URL (e.g. your-domain.com/abcd123) an HTTP GET request is sent to /:code, which goes to the CloudFront CDN first
+2. If the CDN has the redirect cached it responds straight away, without reaching the Lambda function
+3. Otherwise the CDN calls the Lambda function, which fetches the short code from DynamoDB and returns a 302 Found status code with the URL to redirect to
+4. If the code is not found (DynamoDB defaults to being eventually consistent) a consistent read is made, so a link created a moment ago doesn't return a 404
+5. The CDN caches the redirect for one year, but browsers don't cache it at all
 
-Why a 302 and not a 301? A 301 is permanent, so browsers keep it and you can never take the link back. With a 302 that only the CDN caches, taking down a link is just a cache invalidation.
+Why a 302 and not a 301? A 301 is permanent, so browsers can keep it indefinitely and you can't easily take the link back. With a 302 that only the CDN caches, taking down a link is just a cache invalidation.
 
 ## Interesting decisions
 
 If you look at the [repo's decision records](https://github.com/curiousdirection/url-shortener/tree/main/docs/decisions) you will see how I arrived at the final design. I've listed the more interesting ones below. For each one I've linked the decision record if you are interested in more detail, which justifies each decision including consequences, alternatives and when to revisit.
 
-### Replacing EC2 with ECS Express Mode
-
-The original design had a counter, which was used to generate the short code. The idea was that you increment the counter every time a URL is created. For the counter Redis was chosen. This was originally deployed with a Network Load Balancer and EC2 with auto scaling. This could have likely been a viable end solution, and it would probably be the cheapest at full scale, but it was a lot of infrastructure to manage so I switched to ECS Express Mode instead.
-
-[Decision record](https://github.com/curiousdirection/url-shortener/blob/main/docs/decisions/0002-deploy-with-ecs-express-mode.md)
-
 ### Replacing Redis with a Postgres sequence
 
-Another decision I made was to replace Redis with a simple Postgres sequence. It was simpler to manage and reduced the points of failure. Although I hadn't fully thought through recovery at this point, having two separate DBs that can go out of sync would have been a challenge to solve.
+The original design had a counter, which was used to generate the short code. The idea was that you increment the counter every time a URL is created. For the counter Redis was chosen. One of the first decisions I made was to replace Redis with a simple Postgres sequence. It was simpler to manage and reduced the points of failure. Although I hadn't fully thought through recovery at this point, having two separate DBs that can go out of sync would have been a challenge to solve.
 
 [Decision record](https://github.com/curiousdirection/url-shortener/blob/main/docs/decisions/0005-postgres-sequence-for-short-codes.md)
+
+### Replacing EC2 with ECS Express Mode
+
+The original design was deployed with a Network Load Balancer and EC2 with auto scaling. This could have likely been a viable end solution, and it would probably be the cheapest at full scale, but it was a lot of infrastructure to manage so I switched to ECS Express Mode instead.
+
+[Decision record](https://github.com/curiousdirection/url-shortener/blob/main/docs/decisions/0002-deploy-with-ecs-express-mode.md)
 
 ### Replacing ECS Express Mode and RDS with Lambda and DynamoDB
 
@@ -74,7 +74,7 @@ By this point I was planning to use a CDN to cache URLs. What I hadn't realised 
 
 ### No Redis cache
 
-The final design doesn't involve Redis at all. With DynamoDB reads already taking single-digit milliseconds and assuming a 90% CDN cache hit rate it was hard to justify adding Redis (behind a VPC).
+The final design doesn't involve Redis at all. With DynamoDB reads already taking single-digit milliseconds and assuming a 90% CDN cache hit rate it was hard to justify adding Redis (inside a VPC).
 
 [Decision record](https://github.com/curiousdirection/url-shortener/blob/main/docs/decisions/0008-no-redis-cache.md)
 

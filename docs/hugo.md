@@ -28,3 +28,12 @@ Source: https://github.com/gohugoio/hugo/blob/v0.147.9/docs/content/en/render-ho
 - The context provides `.Destination`, `.PlainText`, `.Text`, `.Title`, `.IsBlock`, `.Ordinal` and `.Page`
 - Use `{{- -}}` to trim whitespace, since images are inline elements
 - Hugo's embedded image render hook is disabled by default, and a custom render hook overrides it anyway
+
+## Dark versions of images
+
+Sources: https://gohugo.io/functions/os/fileexists/, https://gohugo.io/functions/path/ext/, https://gohugo.io/functions/strings/trimsuffix/ (docs read November 2026; the site is on Hugo 0.147.9)
+
+- `fileExists PATH` (alias of `os.FileExists`) returns a bool; it resolves the path relative to the project root, then each module's root, then the `content` directory, and a leading `/` is optional
+- `path.Ext PATH` returns the extension with its dot (`.png`), or an empty string when the last element has no dot
+- `strings.TrimSuffix SUFFIX STRING` takes the suffix first and returns the string unchanged if it doesn't end with it
+- The image render hook checks for `static/<path>-dark.<ext>` next to a root-relative image and, when it exists, renders both, shown by theme with `.image--light` and `.image--dark`
