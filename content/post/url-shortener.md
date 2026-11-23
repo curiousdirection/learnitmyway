@@ -48,7 +48,7 @@ I have been brushing up on my system design skills and I thought to myself "what
 4. The CloudFront CDN caches the redirect for one year, but browsers don't cache it at all
 5. When the same short URL is fetched again the cached response is served from the CDN
 
-Why a 302 and not a 301? A 301 is permanent, so browsers keep it and you can never take the link back. With a 302 that only the CDN caches, taking down a link is just a cache invalidation. One thing to keep in mind: the function will never see those clicks.
+Why a 302 and not a 301? A 301 is permanent, so browsers keep it and you can never take the link back. With a 302 that only the CDN caches, taking down a link is just a cache invalidation.
 
 ## Interesting decisions
 
@@ -68,7 +68,7 @@ Another decision I made was to replace Redis with a simple Postgres sequence. It
 
 ### Replacing ECS Express Mode and RDS with Lambda and DynamoDB
 
-By this point I was planning to use a CDN to cache URLs. What I hadn't realised was that using a CDN to cache URLs is the only way I know of to handle a 100x spike in the load. When my LLM compared the pricing of ECS Express Mode + RDS vs Lambda + DynamoDB I realised the difference is negligible at full scale, assuming the CDN is being hit 90% of the time. Behind the CDN, the origin would cost about $1.2k a month on Lambda + DynamoDB against $0.6–0.9k on ECS + RDS. Compared to the CDN itself, which would be about $39k a month, that difference disappears. So, I decided to switch to Lambda + DynamoDB instead. Using Lambda and DynamoDB simplified the infrastructure even further and the practice deployment dropped from about $50 a month to about $0 because nothing bills while idle. I had to drop the counter, but generating a 7-character code was good enough. Even with 1 billion links, a create needing 5 retries in a row would happen about once every 150 million years. If clashes start happening we can just increase to 8 characters. Some consequences of switching to Lambda + DynamoDB were deeper vendor lock-in and cold starts.
+By this point I was planning to use a CDN to cache URLs. What I hadn't realised was that using a CDN to cache URLs is the only way I know of to handle a 100x spike in the load. When my LLM compared the pricing of ECS Express Mode + RDS vs Lambda + DynamoDB I realised the difference is negligible at full scale, assuming the CDN is being hit 90% of the time. Behind the CDN, the origin would cost about $1.2k a month on Lambda + DynamoDB against $0.6–0.9k on ECS + RDS. Compared to the CDN itself, which would be about $39k a month, that difference disappears. So, I decided to switch to Lambda + DynamoDB instead. Using Lambda and DynamoDB simplified the infrastructure even further and the practice deployment dropped from about $50 a month to about $0 because nothing bills while idle. I had to drop the counter, but generating a 7-character code was good enough. If clashes start happening we can just increase to 8 characters. Some consequences of switching to Lambda + DynamoDB were deeper vendor lock-in and cold starts.
 
 [Decision record](https://github.com/curiousdirection/url-shortener/blob/main/docs/decisions/0006-move-to-lambda-and-dynamodb.md)
 
