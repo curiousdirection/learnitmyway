@@ -87,3 +87,5 @@ In the end I decided against separate functions for reads and writes. While the 
 ## Final thoughts
 
 Thank you for coming along for the ride. The part that I found most interesting was that the optimal solution involved not using Redis. Having a coding agent help me to iterate on the architecture, do research (e.g. pricing) and be a sparring partner is a game changer. Feel free to scrutinise the final implementation [on GitHub](https://github.com/curiousdirection/url-shortener).
+
+If you'd like to see what I build next, you can follow me [on X](https://x.com/learnitmyway).
