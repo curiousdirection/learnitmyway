@@ -4,3 +4,8 @@
     {{ partial "svg/github.svg" (dict "size" $icon_size) }}
   </a>
 {{ end }}
+{{ with .Site.Params.x }}
+  <a aria-label="x follow" href="{{ . }}" class="social-icon social-icon--x" title="X link">
+    {{ partial "svg/x.svg" (dict "size" $icon_size) }}
+  </a>
+{{ end }}

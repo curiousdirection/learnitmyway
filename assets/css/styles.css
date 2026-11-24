@@ -415,6 +415,7 @@ article img {
 .site-footer__social {
   grid-area: social;
   display: flex;
+  gap: 0.75rem;
 }
 
 code {

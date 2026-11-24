@@ -16,6 +16,8 @@ pygmentsUseClasses = true
   description = "David's learning experiences as a self-taught software developer"
   shareImage = "img/share.png"
   github = "https://github.com/curiousdirection"
+  x = "https://x.com/learnitmyway"
+  xHandle = "learnitmyway"
   repoName = "learnitmyway"
   repoBranch = "main"
 
