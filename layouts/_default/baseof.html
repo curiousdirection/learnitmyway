@@ -63,6 +63,7 @@
     <meta property="og:title" content="{{ .Title | default .Site.Title }}" />
 
     <meta name="twitter:card" content="summary_large_image" />
+    {{ with .Site.Params.xHandle }}<meta name="twitter:site" content="@{{ . }}" />{{ end }}
 
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
