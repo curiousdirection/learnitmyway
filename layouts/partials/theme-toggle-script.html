@@ -19,12 +19,22 @@
     buttons.forEach(function (button) {
       button.addEventListener('click', function () {
         var theme = currentTheme() === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
+        var followSystem = theme === (media.matches ? 'dark' : 'light');
+        if (followSystem) {
+          root.removeAttribute('data-theme');
+        } else {
+          root.setAttribute('data-theme', theme);
+        }
         document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
-          meta.setAttribute('content', theme === 'dark' ? '#1b1915' : '#fffaf0');
+          var metaTheme = followSystem ? (meta.media.indexOf('dark') !== -1 ? 'dark' : 'light') : theme;
+          meta.setAttribute('content', metaTheme === 'dark' ? '#1b1915' : '#fffaf0');
         });
         try {
-          localStorage.setItem('theme', theme);
+          if (followSystem) {
+            localStorage.removeItem('theme');
+          } else {
+            localStorage.setItem('theme', theme);
+          }
         } catch (e) {}
         updateButtons();
       });
