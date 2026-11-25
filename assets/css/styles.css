@@ -6,8 +6,9 @@
   --ink-soft: #4a5368;
   --accent: #c8102e;
   --code-background: #f4eddc;
-  --moon-display: block;
-  --sun-display: none;
+  --toggle-knob-x: 0;
+  --toggle-sun: var(--paper);
+  --toggle-moon: var(--ink);
   --light-image-display: inline;
   --dark-image-display: none;
 
@@ -38,8 +39,9 @@
     --ink-soft: #c4bba9;
     --accent: #ff8a8a;
     --code-background: #26231e;
-    --moon-display: none;
-    --sun-display: block;
+    --toggle-knob-x: 26px;
+    --toggle-sun: var(--ink);
+    --toggle-moon: var(--paper);
     --light-image-display: none;
     --dark-image-display: inline;
   }
@@ -52,8 +54,9 @@
   --ink-soft: #c4bba9;
   --accent: #ff8a8a;
   --code-background: #26231e;
-  --moon-display: none;
-  --sun-display: block;
+  --toggle-knob-x: 26px;
+  --toggle-sun: var(--ink);
+  --toggle-moon: var(--paper);
   --light-image-display: none;
   --dark-image-display: inline;
 }
@@ -123,36 +126,57 @@ body {
 }
 
 .theme-toggle {
-  display: inline-grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: 0;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  width: 56px;
+  height: 30px;
+  padding: 0 6px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
   background: transparent;
   color: var(--ink);
   cursor: pointer;
-  transition: color 0.15s ease-in, border-color 0.15s ease-in;
+  transition: border-color 0.15s ease-in;
   &:hover,
   &:focus-visible {
-    color: var(--accent);
+    border-color: var(--accent);
   }
   &[hidden] {
     display: none;
   }
   & svg {
+    position: relative;
     fill: none;
     stroke: currentColor;
-    stroke-width: 2;
+    stroke-width: 2.2;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
+  @media (prefers-reduced-motion: reduce) {
+    & .theme-toggle__knob {
+      transition: none;
+    }
+  }
 }
-.theme-toggle__moon {
-  display: var(--moon-display);
+.theme-toggle__knob {
+  position: absolute;
+  top: 2.5px;
+  left: 2.5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateX(var(--toggle-knob-x));
+  transition: transform 0.2s ease;
 }
 .theme-toggle__sun {
-  display: var(--sun-display);
+  color: var(--toggle-sun);
+}
+.theme-toggle__moon {
+  color: var(--toggle-moon);
 }
 
 .body-wrapper {
@@ -212,6 +236,10 @@ body {
   align-items: center;
   gap: 0.75rem;
   border-bottom: var(--rule);
+  @media screen and (max-width: 360px) {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
 }
 
 .nav__title {
@@ -242,16 +270,47 @@ body {
 
 .nav__cap {
   flex-shrink: 0;
+  @media screen and (max-width: 400px) {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .nav__actions {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 0.75rem;
+  gap: 1rem;
   @media screen and (max-width: 400px) {
     gap: 0.5rem;
   }
+}
+
+.nav__social {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  @media screen and (max-width: 400px) {
+    gap: 0.4rem;
+    & svg {
+      width: 26px;
+      height: 26px;
+    }
+  }
+  @media screen and (max-width: 360px) {
+    gap: 0.25rem;
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.nav__divider {
+  width: 1px;
+  height: 26px;
+  background: var(--ink);
+  opacity: 0.35;
 }
 
 .social-icon {

@@ -4,7 +4,10 @@
     {{ .Site.Title }}
   </a>
   <div class="nav__actions">
+    <div class="nav__social">
+      {{ partial "social-follow.html" . }}
+    </div>
+    <span class="nav__divider" aria-hidden="true"></span>
     {{ partial "theme-toggle.html" . }}
-    {{ partial "social-follow.html" . }}
   </div>
 </nav>
