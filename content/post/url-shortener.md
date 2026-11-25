@@ -1,5 +1,5 @@
 ---
-title: "I built a URL shortener!"
+title: "Building a URL shortener that can handle 1.2M requests per second"
 type: post
 date: 2026-11-23
 excerpt: In this article, I turn the classic URL shortener system design question into a real implementation and share the decisions that shaped it.
