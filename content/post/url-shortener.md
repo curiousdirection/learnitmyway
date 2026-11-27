@@ -50,6 +50,35 @@ I have been brushing up on my system design skills and I thought to myself "what
 
 Why a 302 and not a 301? A 301 is permanent, so browsers can keep it indefinitely and you can't easily take the link back. With a 302 that only the CDN caches, taking down a link is just a cache invalidation.
 
+### The code
+
+The Lambda function runs a single Hono app written in TypeScript. Here is a simplified version of the redirect:
+
+```ts
+// The CDN keeps a redirect for a year (s-maxage), browsers don't keep it at all (max-age=0).
+const CACHE_REDIRECT = "public, max-age=0, s-maxage=31536000";
+
+app.get("/:code", async (c) => {
+  const code = c.req.param("code");
+  const longUrl = await service.resolve(code);
+  if (!longUrl) {
+    // A 404 is only cached for 10 seconds, so a new link starts working soon.
+    c.header("Cache-Control", "public, max-age=10");
+    return c.json({ error: "not found" }, 404);
+  }
+  c.header("Cache-Control", CACHE_REDIRECT);
+  return c.redirect(longUrl, 302);
+});
+
+async resolve(code) {
+  // The default read is cheaper but can miss a link created a moment ago.
+  // If it misses, try again with a consistent read.
+  return (await readEventual(code)) ?? (await readConsistent(code));
+}
+```
+
+The full version is in [app.ts](https://github.com/curiousdirection/url-shortener/blob/main/src/app.ts) and [urlService.ts](https://github.com/curiousdirection/url-shortener/blob/main/src/urlService.ts).
+
 ## Interesting decisions
 
 If you look at the [repo's decision records](https://github.com/curiousdirection/url-shortener/tree/main/docs/decisions) you will see how I arrived at the final design. I've listed the more interesting ones below. For each one I've linked the decision record if you are interested in more detail, which justifies each decision including consequences, alternatives and when to revisit.
